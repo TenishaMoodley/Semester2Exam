@@ -1056,7 +1056,7 @@ MonoBehaviour:
   Backward: 274
   Move_Left: 276
   Move_right: 275
-  speed: 10
+  speed: 5
 --- !u!54 &1425025780
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1594,7 +1594,7 @@ MonoBehaviour:
   Backward: 115
   Move_Left: 97
   Move_right: 100
-  speed: 10
+  speed: 5
 --- !u!54 &2014453297
 Rigidbody:
   m_ObjectHideFlags: 0
