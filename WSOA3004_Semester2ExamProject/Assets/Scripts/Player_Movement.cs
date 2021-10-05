@@ -24,6 +24,8 @@ public class Player_Movement : MonoBehaviour
         //Cursor.visible = false;
     }
 
+   
+
     private void FixedUpdate()
     {
         if (Input.GetKey(Forward))
