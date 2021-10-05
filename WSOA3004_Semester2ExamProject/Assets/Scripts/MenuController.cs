@@ -19,4 +19,12 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene(0);
         StartPanel.SetActive(false);
     }
+
+    public void startGame()
+    {
+        Debug.Log("Playing");
+        SceneManager.LoadScene(1);
+       
+         
+    }
 }
