@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 772124411124818600}
   - component: {fileID: 772124411124818601}
   - component: {fileID: 8385676587698230873}
-  - component: {fileID: -6583579657965362861}
   m_Layer: 0
   m_Name: Destroy
   m_TagString: Destroy
@@ -114,16 +113,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-6583579657965362861
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 772124411124818602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebb830ad7b3ae1643ad37b0a588ea5b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  seconds: 15

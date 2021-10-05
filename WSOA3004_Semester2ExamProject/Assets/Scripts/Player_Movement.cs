@@ -21,6 +21,7 @@ public class Player_Movement : MonoBehaviour
     void Start()
     {
         rBody = GetComponent<Rigidbody>();
+        //Cursor.visible = false;
     }
 
     private void FixedUpdate()
