@@ -11,6 +11,18 @@ public class Player_Movement : MonoBehaviour
 
     public float speed;
 
+    /// Additions///
+    public KeyCode Jump;
+    public float jumpForce;
+    public Rigidbody rBody;
+
+    public bool isGrounded = true;
+
+    void Start()
+    {
+        rBody = GetComponent<Rigidbody>();
+    }
+
     private void FixedUpdate()
     {
         if (Input.GetKey(Forward))
@@ -28,6 +40,29 @@ public class Player_Movement : MonoBehaviour
         if (Input.GetKey(Move_Left))
         {
             transform.Translate(Vector3.left * speed * Time.fixedDeltaTime, Space.Self);
+        }
+        if (Input.GetKey(Jump) && isGrounded)
+        {
+            rBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            isGrounded = false;
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        //isGrounded = true;
+
+        if (collision.gameObject.CompareTag("ground"))
+        {
+            isGrounded = true;
+        }
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("ground"))
+        {
+            isGrounded = false;
         }
     }
 }
