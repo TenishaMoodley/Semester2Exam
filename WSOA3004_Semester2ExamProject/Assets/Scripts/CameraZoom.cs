@@ -18,16 +18,6 @@ public class CameraZoom : MonoBehaviour
     private void Update()
     {
         Player_Distance = Vector3.Distance(Bean1_GO.transform.position, Bean2_GO.transform.position);
-
-        //if (Player_Distance <= 10)
-        //{
-        //    Curr_FOV = 30;
-        //}
-        //else
-        //{
-        //    Curr_FOV = 30 + (Player_Distance - value);
-        //}
-
         Curr_FOV = 30 + (Player_Distance - value);
         Curr_FOV =  Mathf.Clamp(Curr_FOV, MinFOV, MaxFOV);
         Camera.main.fieldOfView = Curr_FOV;

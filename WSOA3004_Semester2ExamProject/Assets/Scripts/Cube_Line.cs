@@ -10,6 +10,8 @@ public class Cube_Line : MonoBehaviour
     private Vector3 Bean1_Pos;
     private Vector3 Bean2_Pos;
 
+    public GameObject Manager;
+
     private void Update()
     {
         Bean1_Pos = Bean1_GO.transform.position;
@@ -33,6 +35,7 @@ public class Cube_Line : MonoBehaviour
         if (collision.gameObject.tag == "Destroy")
         {
             Destroy(collision.gameObject);
+            Manager.GetComponent<Manager>().Addpoint();
         }
     }
 }

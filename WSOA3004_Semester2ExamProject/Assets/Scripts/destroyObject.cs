@@ -8,7 +8,15 @@ public class destroyObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, seconds);
-
+        StartCoroutine(Destroyself());
     }
+
+    IEnumerator Destroyself()
+    {
+        yield return new WaitForSeconds(seconds);
+        GameObject manager = GameObject.Find("Manager");
+        manager.GetComponent<Manager>().DestroyedAdd();
+        Destroy(gameObject);
+    }
+   
 }
