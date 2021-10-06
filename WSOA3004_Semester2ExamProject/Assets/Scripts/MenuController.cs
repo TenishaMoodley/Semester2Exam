@@ -24,7 +24,11 @@ public class MenuController : MonoBehaviour
     {
         Debug.Log("Playing");
         SceneManager.LoadScene(1);
-       
-         
+  
+    }
+
+    public void Change_Scene(int level)
+    {
+        SceneManager.LoadScene(level);
     }
 }

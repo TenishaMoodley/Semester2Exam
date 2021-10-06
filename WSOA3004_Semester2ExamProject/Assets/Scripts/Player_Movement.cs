@@ -18,6 +18,17 @@ public class Player_Movement : MonoBehaviour
 
     public bool isGrounded = true;
 
+    
+
+    public Vector3 Position_Change;
+
+    private float MaxX = 23;
+    private float MaxZ = 17;
+    private float MinX = -20;
+    private float MinZ = -8;
+
+
+
     void Start()
     {
         rBody = GetComponent<Rigidbody>();
@@ -48,6 +59,29 @@ public class Player_Movement : MonoBehaviour
         {
             rBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
+        }
+
+        Position_Change = transform.position;
+        if (Position_Change.x >= MaxX)
+        {
+            Position_Change.x = MaxX;
+            transform.position = Position_Change;
+        }
+        if (Position_Change.x <= MinX)
+        {
+            Position_Change.x = MinX;
+            transform.position = Position_Change;
+
+        }
+        if (Position_Change.z >= MaxZ)
+        {
+            Position_Change.z = MaxZ;
+            transform.position = Position_Change;
+        }
+        if (Position_Change.z <= MinZ)
+        {
+            Position_Change.z = MinZ;
+            transform.position = Position_Change;
         }
     }
 
