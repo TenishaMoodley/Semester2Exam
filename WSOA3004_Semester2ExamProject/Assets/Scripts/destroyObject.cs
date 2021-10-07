@@ -5,7 +5,8 @@ using UnityEngine;
 public class destroyObject : MonoBehaviour
 {
     public float seconds;
-    // Start is called before the first frame update
+    //public Animator collectableAnim;
+
     void Start()
     {
         StartCoroutine(Destroyself());
@@ -17,6 +18,9 @@ public class destroyObject : MonoBehaviour
         GameObject manager = GameObject.Find("Manager");
         manager.GetComponent<Manager>().DestroyedAdd();
         Destroy(gameObject);
+
+        
+        
     }
    
 }
