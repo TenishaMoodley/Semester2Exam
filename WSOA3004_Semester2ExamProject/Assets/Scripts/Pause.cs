@@ -7,6 +7,10 @@ public class Pause : MonoBehaviour
 {
     bool paused = false;
     public GameObject pausePanel;
+    public GameObject ArrowUI;
+    public GameObject WASDUI;
+
+
     private void Start()
     {
         pausePanel.SetActive(false);
@@ -27,6 +31,7 @@ public class Pause : MonoBehaviour
             pausePanel.SetActive(false);
             Time.timeScale = 1f;
             Cursor.lockState = CursorLockMode.Locked;
+            
         }
         else
         {
@@ -34,6 +39,8 @@ public class Pause : MonoBehaviour
             pausePanel.SetActive(true);
             Time.timeScale = 0f;
             Cursor.lockState = CursorLockMode.None;
+            ArrowUI.SetActive(false);
+            WASDUI.SetActive(false);
         }
     }
 }

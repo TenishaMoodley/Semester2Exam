@@ -9,6 +9,8 @@ public class Manager : MonoBehaviour
     public int score;
     public TMP_Text Score_Txt_End;
     public TMP_Text Score_Txt_UI;
+    public GameObject ArrowUI;
+    public GameObject WASDUI;
 
     private int Total = 8;
     private int Destroyed;
@@ -41,6 +43,21 @@ public class Manager : MonoBehaviour
             EndPanel.SetActive(true);
             Time.timeScale = 0f;
             Cursor.lockState = CursorLockMode.None;
+        }
+
+       
+        
+        
+        
+        //The game controls UI disappearing after interacted with
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            ArrowUI.SetActive(false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
+        {
+            WASDUI.SetActive(false);
         }
     }
 }
