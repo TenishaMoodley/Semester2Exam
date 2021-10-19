@@ -27,34 +27,82 @@ public class Player_Movement : MonoBehaviour
     private float MinX = -20;
     private float MinZ = -8;
 
+    ///Animations///
+    public Animator anim;
+
+    ///Mesh Rotation///
+    public Transform faceForward;
+    public Transform faceBackwards;
+    public Transform faceLeft;
+    public Transform faceRight;
 
 
     void Start()
     {
         rBody = GetComponent<Rigidbody>();
         //Cursor.visible = false;
+        anim = GetComponent<Animator>(); 
     }
 
-   
+    void Update()
+    {
+       // Vector3 forward = faceForward.position - transform.position;
+       
+       // Vector3 left = faceLeft.position - transform.position;
+        //Vector3 rigth = faceRight.position - transform.position;
+
+       
+        
+    }
+
+
 
     private void FixedUpdate()
     {
         if (Input.GetKey(Forward))
         {
             transform.Translate(Vector3.forward * speed * Time.fixedDeltaTime, Space.Self);
+            anim.SetBool("isRunningF", true);
         }
+        if (!Input.GetKey(Forward)) 
+        {
+            anim.SetBool("isRunningF", false); 
+        }
+
+
         if (Input.GetKey(Backward))
         {
             transform.Translate(-Vector3.forward * speed * Time.fixedDeltaTime, Space.Self);
+            anim.SetBool("isRunningB", true);
         }
+        if (!Input.GetKey(Backward))
+        {
+            anim.SetBool("isRunningB", false);
+        }
+
+
         if (Input.GetKey(Move_right))
         {
             transform.Translate(Vector3.right * speed * Time.fixedDeltaTime, Space.Self);
+            anim.SetBool("isRunningR", true);
         }
+        if (!Input.GetKey(Move_right))
+        {
+            anim.SetBool("isRunningR", false);
+        }
+
+
         if (Input.GetKey(Move_Left))
         {
             transform.Translate(Vector3.left * speed * Time.fixedDeltaTime, Space.Self);
+            anim.SetBool("isRunningL", true);
         }
+        if (!Input.GetKey(Move_Left))
+        {
+            anim.SetBool("isRunningL", false);
+        }
+
+
         if (Input.GetKey(Jump) && isGrounded)
         {
             rBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);

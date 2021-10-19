@@ -373,8 +373,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Line_GO: {fileID: 1219028902}
-  Bean1_GO: {fileID: 2014453291}
-  Bean2_GO: {fileID: 1425025774}
+  Bean1_GO: {fileID: 489258429}
+  Bean2_GO: {fileID: 1382540025}
   Max_Distance: 10
 --- !u!1001 &98247470
 PrefabInstance:
@@ -1285,8 +1285,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 82a2914d8f86c62488456950c8330e38, type: 3}
   m_PrefabInstance: {fileID: 97769410}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &489258430
-CapsuleCollider:
+--- !u!65 &489258430
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1295,10 +1295,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.20904331
-  m_Height: 1.3951609
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.7040599, z: 0.108152725}
+  serializedVersion: 2
+  m_Size: {x: 0.53899586, y: 1.1607728, z: 0.1732098}
+  m_Center: {x: 0.022788147, y: 0.62099624, z: 0.12830213}
 --- !u!4 &489258431 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 82a2914d8f86c62488456950c8330e38, type: 3}
@@ -1326,6 +1325,11 @@ MonoBehaviour:
   rBody: {fileID: 489258433}
   isGrounded: 1
   Position_Change: {x: 0, y: 0, z: 0}
+  anim: {fileID: 0}
+  faceForward: {fileID: 0}
+  faceBackwards: {fileID: 0}
+  faceLeft: {fileID: 0}
+  faceRight: {fileID: 0}
 --- !u!54 &489258433
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3148,8 +3152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ebebe910565f44ab4ea189ebddaf0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bean1_GO: {fileID: 2014453291}
-  Bean2_GO: {fileID: 1425025774}
+  Bean1_GO: {fileID: 489258429}
+  Bean2_GO: {fileID: 1382540025}
   Manager: {fileID: 1009400331}
 --- !u!65 &1219028904
 BoxCollider:
@@ -3782,6 +3786,11 @@ MonoBehaviour:
   rBody: {fileID: 1382540029}
   isGrounded: 1
   Position_Change: {x: 0, y: 0, z: 0}
+  anim: {fileID: 0}
+  faceForward: {fileID: 0}
+  faceBackwards: {fileID: 0}
+  faceLeft: {fileID: 0}
+  faceRight: {fileID: 0}
 --- !u!54 &1382540029
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3818,7 +3827,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1425025775
 Transform:
   m_ObjectHideFlags: 0
@@ -3919,6 +3928,11 @@ MonoBehaviour:
   rBody: {fileID: 1425025780}
   isGrounded: 1
   Position_Change: {x: 0, y: 0, z: 0}
+  anim: {fileID: 0}
+  faceForward: {fileID: 0}
+  faceBackwards: {fileID: 0}
+  faceLeft: {fileID: 0}
+  faceRight: {fileID: 0}
 --- !u!54 &1425025780
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4214,8 +4228,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e18d57428e56cd446b2771403b06f39b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bean1_GO: {fileID: 2014453291}
-  Bean2_GO: {fileID: 1425025774}
+  Bean1_GO: {fileID: 489258429}
+  Bean2_GO: {fileID: 1382540025}
 --- !u!1 &1638350635
 GameObject:
   m_ObjectHideFlags: 0
@@ -5590,8 +5604,8 @@ MonoBehaviour:
   MinFOV: 30
   Curr_FOV: 60
   value: 10
-  Bean1_GO: {fileID: 2014453291}
-  Bean2_GO: {fileID: 1425025774}
+  Bean1_GO: {fileID: 489258429}
+  Bean2_GO: {fileID: 1382540025}
   Cameraoffset: {x: 1, y: 20, z: -20}
 --- !u!4 &1999870912 stripped
 Transform:
@@ -5618,7 +5632,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2014453292
 Transform:
   m_ObjectHideFlags: 0
@@ -5719,6 +5733,11 @@ MonoBehaviour:
   rBody: {fileID: 2014453297}
   isGrounded: 1
   Position_Change: {x: 0, y: 0, z: 0}
+  anim: {fileID: 0}
+  faceForward: {fileID: 0}
+  faceBackwards: {fileID: 0}
+  faceLeft: {fileID: 0}
+  faceRight: {fileID: 0}
 --- !u!54 &2014453297
 Rigidbody:
   m_ObjectHideFlags: 0
