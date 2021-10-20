@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Destroy
   - ground
+  - PlayerEyes
+  - Jammo
+  - Adam
   layers:
   - Default
   - TransparentFX
