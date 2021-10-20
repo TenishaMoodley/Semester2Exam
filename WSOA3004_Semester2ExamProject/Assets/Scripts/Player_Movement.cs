@@ -36,6 +36,10 @@ public class Player_Movement : MonoBehaviour
     public Transform faceLeft;
     public Transform faceRight;
 
+    //Ports//
+    public bool Teleporting = false;
+    public GameObject enteredPortal;
+
 
     void Start()
     {
@@ -49,7 +53,7 @@ public class Player_Movement : MonoBehaviour
        // Vector3 forward = faceForward.position - transform.position;
        
        // Vector3 left = faceLeft.position - transform.position;
-        //Vector3 rigth = faceRight.position - transform.position;
+       //Vector3 rigth = faceRight.position - transform.position;
 
        
         
