@@ -328,6 +328,10 @@ PrefabInstance:
       value: Jammo
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 82a2914d8f86c62488456950c8330e38, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 82a2914d8f86c62488456950c8330e38, type: 3}
       propertyPath: m_TagString
       value: Jammo
       objectReference: {fileID: 0}
@@ -543,8 +547,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
+  m_HorizontalAxis: Horizontal_1
+  m_VerticalAxis: Vertical_1
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
@@ -1467,6 +1471,8 @@ MonoBehaviour:
   jumpForce: 0
   rBody: {fileID: 489258433}
   isGrounded: 1
+  horizontalAxis: Horizontal_1
+  vericalAxis: Vertical_1
   Position_Change: {x: 0, y: 0, z: 0}
   anim: {fileID: 0}
   faceForward: {fileID: 0}
@@ -4298,6 +4304,8 @@ MonoBehaviour:
   jumpForce: 0
   rBody: {fileID: 1382540029}
   isGrounded: 1
+  horizontalAxis: Horizontal_2
+  vericalAxis: Vertical_2
   Position_Change: {x: 0, y: 0, z: 0}
   anim: {fileID: 0}
   faceForward: {fileID: 0}
@@ -4442,6 +4450,8 @@ MonoBehaviour:
   jumpForce: 6
   rBody: {fileID: 1425025780}
   isGrounded: 1
+  horizontalAxis: 
+  vericalAxis: 
   Position_Change: {x: 0, y: 0, z: 0}
   anim: {fileID: 0}
   faceForward: {fileID: 0}
@@ -6615,6 +6625,8 @@ MonoBehaviour:
   jumpForce: 6
   rBody: {fileID: 2014453297}
   isGrounded: 1
+  horizontalAxis: 
+  vericalAxis: 
   Position_Change: {x: 0, y: 0, z: 0}
   anim: {fileID: 0}
   faceForward: {fileID: 0}

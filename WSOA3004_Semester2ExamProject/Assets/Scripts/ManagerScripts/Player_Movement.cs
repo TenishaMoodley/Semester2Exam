@@ -18,6 +18,12 @@ public class Player_Movement : MonoBehaviour
 
     public bool isGrounded = true;
 
+    [SerializeField]
+    protected string horizontalAxis;
+
+    [SerializeField]
+    protected string vericalAxis;
+
     
 
     public Vector3 Position_Change;
@@ -63,10 +69,19 @@ public class Player_Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        var x = Input.GetAxis(horizontalAxis);
+        var y = Input.GetAxis(vericalAxis);
+
+        Vector2 input = new Vector2(x, y);
+        Debug.Log(input);
+       
+        
         if (Input.GetKey(Forward))
         {
-            transform.Translate(Vector3.forward * speed * Time.fixedDeltaTime, Space.Self);
+            //transform.Translate(Vector3.forward * speed * Time.fixedDeltaTime, Space.Self);
             anim.SetBool("isRunningF", true);
+
+           // blank.y = 1;
         }
         if (!Input.GetKey(Forward)) 
         {
@@ -76,8 +91,9 @@ public class Player_Movement : MonoBehaviour
 
         if (Input.GetKey(Backward))
         {
-            transform.Translate(-Vector3.forward * speed * Time.fixedDeltaTime, Space.Self);
+           // transform.Translate(-Vector3.forward * speed * Time.fixedDeltaTime, Space.Self);
             anim.SetBool("isRunningB", true);
+           // blank.y = -1; 
         }
         if (!Input.GetKey(Backward))
         {
@@ -87,8 +103,9 @@ public class Player_Movement : MonoBehaviour
 
         if (Input.GetKey(Move_right))
         {
-            transform.Translate(Vector3.right * speed * Time.fixedDeltaTime, Space.Self);
+           // transform.Translate(Vector3.right * speed * Time.fixedDeltaTime, Space.Self);
             anim.SetBool("isRunningR", true);
+           // blank.x = 1;
         }
         if (!Input.GetKey(Move_right))
         {
@@ -98,8 +115,9 @@ public class Player_Movement : MonoBehaviour
 
         if (Input.GetKey(Move_Left))
         {
-            transform.Translate(Vector3.left * speed * Time.fixedDeltaTime, Space.Self);
+           //transform.Translate(Vector3.left * speed * Time.fixedDeltaTime, Space.Self);
             anim.SetBool("isRunningL", true);
+           // blank.x = -1;
         }
         if (!Input.GetKey(Move_Left))
         {
@@ -135,6 +153,11 @@ public class Player_Movement : MonoBehaviour
             Position_Change.z = MinZ;
             transform.position = Position_Change;
         }
+
+        float angle = Mathf.Atan2(input.y, input.x) * Mathf.Rad2Deg;
+        Vector3 move = new Vector3(input.x, 0, input.y);
+        transform.Translate(move * speed * Time.fixedDeltaTime, Space.Self);
+        transform.RotateAround(transform.position, Vector3.up, angle);
     }
 
     void OnCollisionEnter(Collision collision)
