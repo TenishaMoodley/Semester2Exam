@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 public class Player_Movement : MonoBehaviour
 {
@@ -24,6 +27,8 @@ public class Player_Movement : MonoBehaviour
     [SerializeField]
     protected string vericalAxis;
 
+    [SerializeField]
+    protected float angleOffset = 90;
     
 
     public Vector3 Position_Change;
@@ -59,10 +64,7 @@ public class Player_Movement : MonoBehaviour
        // Vector3 forward = faceForward.position - transform.position;
        
        // Vector3 left = faceLeft.position - transform.position;
-       //Vector3 rigth = faceRight.position - transform.position;
-
-       
-        
+       //Vector3 rigth = faceRight.position - transform.position    
     }
 
 
@@ -73,12 +75,12 @@ public class Player_Movement : MonoBehaviour
         var y = Input.GetAxis(vericalAxis);
 
         Vector2 input = new Vector2(x, y);
-        Debug.Log(input);
+        //Debug.Log(input);
        
         
         if (Input.GetKey(Forward))
         {
-            //transform.Translate(Vector3.forward * speed * Time.fixedDeltaTime, Space.Self);
+            transform.Translate(Vector3.forward * speed * Time.fixedDeltaTime, Space.World);
             anim.SetBool("isRunningF", true);
 
            // blank.y = 1;
@@ -91,7 +93,7 @@ public class Player_Movement : MonoBehaviour
 
         if (Input.GetKey(Backward))
         {
-           // transform.Translate(-Vector3.forward * speed * Time.fixedDeltaTime, Space.Self);
+            transform.Translate(-Vector3.forward * speed * Time.fixedDeltaTime, Space.World);
             anim.SetBool("isRunningB", true);
            // blank.y = -1; 
         }
@@ -103,7 +105,7 @@ public class Player_Movement : MonoBehaviour
 
         if (Input.GetKey(Move_right))
         {
-           // transform.Translate(Vector3.right * speed * Time.fixedDeltaTime, Space.Self);
+            transform.Translate(Vector3.right * speed * Time.fixedDeltaTime, Space.World);
             anim.SetBool("isRunningR", true);
            // blank.x = 1;
         }
@@ -115,7 +117,7 @@ public class Player_Movement : MonoBehaviour
 
         if (Input.GetKey(Move_Left))
         {
-           //transform.Translate(Vector3.left * speed * Time.fixedDeltaTime, Space.Self);
+           transform.Translate(Vector3.left * speed * Time.fixedDeltaTime, Space.World);
             anim.SetBool("isRunningL", true);
            // blank.x = -1;
         }
@@ -125,39 +127,55 @@ public class Player_Movement : MonoBehaviour
         }
 
 
-        if (Input.GetKey(Jump) && isGrounded)
+        HandleJump();
+
+
+        var angle = Mathf.Atan2(input.y, input.x) * Mathf.Rad2Deg;
+
+        var eulerRotation = transform.eulerAngles;
+        eulerRotation.y = angle + angleOffset;
+        transform.eulerAngles = eulerRotation;
+        
+        
+        ClampPosition();
+
+    }
+
+    private void HandleJump()
+    {
+        if (Input.GetKey((KeyCode)Jump) && isGrounded)
         {
             rBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
         }
+    }
 
+    private void ClampPosition()
+    {
         Position_Change = transform.position;
         if (Position_Change.x >= MaxX)
         {
             Position_Change.x = MaxX;
             transform.position = Position_Change;
         }
+
         if (Position_Change.x <= MinX)
         {
             Position_Change.x = MinX;
             transform.position = Position_Change;
-
         }
+
         if (Position_Change.z >= MaxZ)
         {
             Position_Change.z = MaxZ;
             transform.position = Position_Change;
         }
+
         if (Position_Change.z <= MinZ)
         {
             Position_Change.z = MinZ;
             transform.position = Position_Change;
         }
-
-        float angle = Mathf.Atan2(input.y, input.x) * Mathf.Rad2Deg;
-        Vector3 move = new Vector3(input.x, 0, input.y);
-        transform.Translate(move * speed * Time.fixedDeltaTime, Space.Self);
-        transform.RotateAround(transform.position, Vector3.up, angle);
     }
 
     void OnCollisionEnter(Collision collision)
