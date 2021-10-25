@@ -5,7 +5,7 @@ using UnityEngine;
 public class Throwing : MonoBehaviour
 {
     //public bool IsTouchingGround = false;
-
+    ParticleSystem explosion; 
     public GameObject Jammo;
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -34,9 +34,9 @@ public class Throwing : MonoBehaviour
     {
         if (collision.gameObject.tag == "wallBreak")
         {
+            explosion.Play();
             Destroy(collision.gameObject);
+           
         }
-
-       
     }
 }
