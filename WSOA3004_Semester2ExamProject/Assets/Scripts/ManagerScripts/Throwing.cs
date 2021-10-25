@@ -20,7 +20,6 @@ public class Throwing : MonoBehaviour
         {
             Jammo.transform.parent = transform;
         }
-
     }
 
     public void OnTriggerExit2D(Collider2D collision)
@@ -29,7 +28,15 @@ public class Throwing : MonoBehaviour
         {
             Jammo.transform.parent = null;
         }
+    }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "wallBreak")
+        {
+            Destroy(collision.gameObject);
+        }
 
+       
     }
 }

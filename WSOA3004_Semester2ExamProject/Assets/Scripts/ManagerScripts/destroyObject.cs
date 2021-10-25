@@ -18,9 +18,6 @@ public class destroyObject : MonoBehaviour
         GameObject manager = GameObject.Find("Manager");
         manager.GetComponent<Manager>().DestroyedAdd();
         Destroy(gameObject);
-
-        
-        
     }
    
 }
