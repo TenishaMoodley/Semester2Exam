@@ -9,6 +9,8 @@ TagManager:
   - PlayerEyes
   - Jammo
   - Adam
+  - wallBreak
+  - Barrel
   layers:
   - Default
   - TransparentFX
