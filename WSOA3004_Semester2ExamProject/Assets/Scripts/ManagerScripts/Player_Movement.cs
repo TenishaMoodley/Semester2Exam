@@ -56,7 +56,9 @@ public class Player_Movement : MonoBehaviour
     {
         rBody = GetComponent<Rigidbody>();
         //Cursor.visible = false;
-        anim = GetComponent<Animator>(); 
+        anim = GetComponent<Animator>();
+        
+
     }
 
     void Update()
@@ -73,11 +75,10 @@ public class Player_Movement : MonoBehaviour
     {
         var x = Input.GetAxis(horizontalAxis);
         var y = Input.GetAxis(vericalAxis);
-
+        
         Vector2 input = new Vector2(x, y);
         //Debug.Log(input);
-       
-        
+
         if (Input.GetKey(Forward))
         {
             transform.Translate(Vector3.forward * speed * Time.fixedDeltaTime, Space.World);
