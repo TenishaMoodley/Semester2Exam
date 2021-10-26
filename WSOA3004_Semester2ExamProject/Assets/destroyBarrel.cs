@@ -10,6 +10,7 @@ public class destroyBarrel : MonoBehaviour
         if (collision.gameObject.tag== "Barrel")
         {
             Destroy(collision.gameObject);
+            Destroy(this.gameObject);
         }
     }
 }

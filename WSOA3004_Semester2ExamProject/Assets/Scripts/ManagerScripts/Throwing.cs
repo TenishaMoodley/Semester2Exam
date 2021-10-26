@@ -32,10 +32,10 @@ public class Throwing : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "wallBreak")
+       // if (collision.gameObject.tag == "wallBreak")
         {
-            explosion.Play();
-            Destroy(collision.gameObject);
+          //  explosion.Play();
+          //  Destroy(collision.gameObject);
            
         }
     }
