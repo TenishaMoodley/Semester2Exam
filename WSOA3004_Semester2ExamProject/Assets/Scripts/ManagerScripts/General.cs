@@ -28,4 +28,6 @@ public class General : MonoBehaviour
             Line_GO.SetActive(true);
         }
     }
+
+
 }
