@@ -22,7 +22,7 @@ public class sphereAnimController : MonoBehaviour
 
     IEnumerator pAnim() 
     {
-        yield return new WaitForSeconds(58);
+        yield return new WaitForSeconds(50);
         anim.SetBool("isExpanding", true);
         Debug.Log("The wait is over");
        
