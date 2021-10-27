@@ -5,41 +5,50 @@ using UnityEngine;
 public class Throwing : MonoBehaviour
 {
     //public bool IsTouchingGround = false;
-    ParticleSystem explosion; 
+    public ParticleSystem explosion; 
     public GameObject Jammo;
 
 
-  /*  public void OnTriggerEnter2D(Collider2D collision)
-    {
-        /*if (collision.gameObject.tag == "Ground")
-        {
-            Debug.Log(IsTouchingGround);
-            IsTouchingGround = true;
-        }
+    /*  public void OnTriggerEnter2D(Collider2D collision)
+      {
+          /*if (collision.gameObject.tag == "Ground")
+          {
+              Debug.Log(IsTouchingGround);
+              IsTouchingGround = true;
+          }
 
-        if (collision.gameObject == Jammo)                  //if barrel is being carried , then it becomes a child of Jammo
-        {
-            Jammo.transform.parent = transform;
-        }
+          if (collision.gameObject == Jammo)                  //if barrel is being carried , then it becomes a child of Jammo
+          {
+              Jammo.transform.parent = transform;
+          }
+      }
+
+      public void OnTriggerExit2D(Collider2D collision)
+      {
+          if (collision.gameObject == Jammo)                  //if barrel is being carried , then it is no longer a child of Jammo
+          {
+              Jammo.transform.parent = null;
+          }
+      } */
+
+    void Update()
+    {
+        explosion = GetComponent<ParticleSystem>();
+       // StartCoroutine(pParticle());
+
     }
 
-    public void OnTriggerExit2D(Collider2D collision)
+   /* IEnumerator pParticle() 
     {
-        if (collision.gameObject == Jammo)                  //if barrel is being carried , then it is no longer a child of Jammo
-        {
-            Jammo.transform.parent = null;
-        }
-    } */
+        yield return new WaitForSeconds(1.5f);
+
+    }*/
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Jammo")
         {
             this.GetComponent<Rigidbody>().mass = 1f;
-            
-          //  explosion.Play();
-          //  Destroy(collision.gameObject);
-           
         }
         else if (collision.gameObject.tag != "Jammo") 
         {
@@ -54,7 +63,14 @@ public class Throwing : MonoBehaviour
         }
 
 
+        if (collision.gameObject.tag == "wallBreak")
+        {
+            explosion.Play();
 
-
+            //StartCoroutine(pParticle());
+            Destroy(collision.gameObject);
+            Destroy(this.gameObject);
+        }
     }
+
 }
