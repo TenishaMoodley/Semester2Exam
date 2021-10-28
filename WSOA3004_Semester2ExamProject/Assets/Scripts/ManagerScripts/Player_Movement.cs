@@ -41,15 +41,15 @@ public class Player_Movement : MonoBehaviour
     ///Animations///
     public Animator anim;
 
-    ///Mesh Rotation///
-    public Transform faceForward;
-    public Transform faceBackwards;
-    public Transform faceLeft;
-    public Transform faceRight;
-
     //Ports//
     public bool Teleporting = false;
     public GameObject enteredPortal;
+
+    ///Pick up Barrels//
+    public KeyCode pickedUp;
+    public Transform pickedUpDest;
+
+
 
 
     void Start()
@@ -57,8 +57,6 @@ public class Player_Movement : MonoBehaviour
         rBody = GetComponent<Rigidbody>();
         //Cursor.visible = false;
         anim = GetComponent<Animator>();
-        
-
     }
 
     void Update()
@@ -142,6 +140,8 @@ public class Player_Movement : MonoBehaviour
 
     }
 
+  
+
     private void HandleJump()
     {
         if (Input.GetKey((KeyCode)Jump) && isGrounded)
@@ -181,12 +181,12 @@ public class Player_Movement : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        //isGrounded = true;
-
         if (collision.gameObject.CompareTag("ground"))
         {
             isGrounded = true;
         }
+
+
     }
 
     void OnCollisionExit(Collision collision)

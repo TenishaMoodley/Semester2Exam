@@ -7,6 +7,8 @@ public class Portal : MonoBehaviour
     public Transform linkedPortal;
     public Animator PortalAnim;
 
+   
+
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Adam")
