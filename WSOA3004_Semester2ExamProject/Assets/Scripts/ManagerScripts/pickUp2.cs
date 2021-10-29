@@ -8,12 +8,16 @@ public class pickUp2 : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.E)) 
+
+
+
+
+        /*if (Input.GetKey(KeyCode.E)) 
         {
             GetComponent<Rigidbody>().useGravity =false;
             this.transform.position = destination.position;
             this.transform.parent = GameObject.Find("pickedUp").transform; 
-        }
+        }*/
 
         /*if (Input.GetKeyUp(KeyCode.E)) 
         {
@@ -25,11 +29,37 @@ public class pickUp2 : MonoBehaviour
          
     }
 
-    private void OnCollisionEnter(Collision collision)
+    /*private void OnCollisionEnter(Collision collision)
     {
-        
+        if (collision.gameObject.tag == "Jammo") 
+        {
+            Debug.Log("contact");
+            if (Input.GetKey(KeyCode.E))
+            {
+                GetComponent<Rigidbody>().useGravity = false;
+                this.transform.position = destination.position;
+                this.transform.parent = GameObject.Find("pickedUp").transform;
+            }
+        }
+    }*/
+
+    private void OnTriggerEnter(Collider collide)
+    {
+        if (collide.gameObject.tag == "Jammo" ) 
+        {
+            Debug.Log("contact");
+            //Input.GetKey(KeyCode.E)
+
+            GetComponent<Rigidbody>().useGravity = false;
+            this.transform.position = destination.position;
+            this.transform.parent = GameObject.Find("pickedUp").transform;
+
+
+
+
+
+
+
+        }
     }
-
-
-
 }

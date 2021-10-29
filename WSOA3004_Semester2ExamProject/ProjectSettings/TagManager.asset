@@ -12,6 +12,7 @@ TagManager:
   - wallBreak
   - Barrel
   - Connection
+  - pickUP
   layers:
   - Default
   - TransparentFX
