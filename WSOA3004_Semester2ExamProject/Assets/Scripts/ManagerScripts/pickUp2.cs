@@ -9,15 +9,12 @@ public class pickUp2 : MonoBehaviour
     void Update()
     {
 
-
-
-
-        /*if (Input.GetKey(KeyCode.E)) 
+        if (Input.GetKey(KeyCode.E)) 
         {
-            GetComponent<Rigidbody>().useGravity =false;
-            this.transform.position = destination.position;
-            this.transform.parent = GameObject.Find("pickedUp").transform; 
-        }*/
+            GetComponent<Rigidbody>().useGravity = true;
+           
+            Debug.Log("E Pressed");
+        }
 
         /*if (Input.GetKeyUp(KeyCode.E)) 
         {
@@ -54,12 +51,8 @@ public class pickUp2 : MonoBehaviour
             this.transform.position = destination.position;
             this.transform.parent = GameObject.Find("pickedUp").transform;
 
-
-
-
-
-
-
         }
     }
+
+    
 }

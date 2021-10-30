@@ -27,5 +27,7 @@ public class TweenGameControlsUI : MonoBehaviour
         LeanTween.scale(gameObject, Vector3.one * Strength, TweenTime).setEasePunch();
     }
 
+
+
 }
 
